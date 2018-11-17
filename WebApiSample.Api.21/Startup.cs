@@ -23,11 +23,14 @@ namespace WebApiSample.Api._21
         {
             services.AddScoped<ProductsRepository>();
             services.AddScoped<PetsRepository>();
+            services.AddScoped<UserRepository>();
 
             services.AddDbContext<ProductContext>(opt =>
                 opt.UseInMemoryDatabase("ProductInventory"));
             services.AddDbContext<PetContext>(opt =>
                 opt.UseInMemoryDatabase("PetInventory"));
+            services.AddDbContext<UserContext>(opt =>
+                opt.UseInMemoryDatabase("UserInventory"));
 
             #region snippet_SetCompatibilityVersion
             services.AddMvc()
