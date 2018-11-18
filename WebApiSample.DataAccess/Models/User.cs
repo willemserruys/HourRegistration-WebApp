@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApiSample.DataAccess.Models
+namespace HourRegistration.DataAccess.Models
 {
     public class User
     {
@@ -9,7 +9,6 @@ namespace WebApiSample.DataAccess.Models
 
         [Required]
         public string UserName { get; set; }
-
 
         [Required]
         public string PassWord { get; set; }

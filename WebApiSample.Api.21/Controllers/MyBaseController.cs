@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace WebApiSample.Api._21.Controllers
+namespace HourRegistration.API
 {
     #region snippet_ControllerSignature
     [ApiController]

@@ -1,15 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebApiSample.DataAccess.Models;
+using HourRegistration.DataAccess.Models;
 
-namespace WebApiSample.DataAccess
+namespace HourRegistration.DataAccess
 {
-    public class UserContext: DbContext
+    public class UserContext : DbContext
     {
-        public UserContext(DbContextOptions<UserContext> options)
-            : base(options)
-        {
-        }
-
         public DbSet<User> Users { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite("Data Source=HourRegistration.db");
+        }
     }
 }

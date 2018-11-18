@@ -7,7 +7,7 @@ using Serilog.Events;
 using System;
 using System.IO;
 
-namespace WebApiSample.Api._21
+namespace HourRegistration.API
 {
     public class Program
     {
@@ -24,6 +24,14 @@ namespace WebApiSample.Api._21
             try
             {
                 Log.Information("Starting web host");
+
+                //using (var db = new UserContext())
+                //{
+                //    db.Users.Add(new User { UserName = "Willem", PassWord = "Test" });
+                //    var count = db.SaveChanges();
+                //    Log.Information("{0} records saved to database", count);
+                //}
+
                 BuildWebHost(args).Run();
                 return 0;
             }
@@ -45,8 +53,5 @@ namespace WebApiSample.Api._21
         .UseSerilog() // <-- Add this line
         .Build();
     }
-    //public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-    //    WebHost.CreateDefaultBuilder(args)
-    //        .UseStartup<Startup>();
 }
 
