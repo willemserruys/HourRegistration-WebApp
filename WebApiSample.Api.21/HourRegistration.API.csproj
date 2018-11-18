@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WebApiSample.DataAccess\WebApiSample.DataAccess.csproj" />
+    <ProjectReference Include="..\WebApiSample.DataAccess\HourRegistration.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

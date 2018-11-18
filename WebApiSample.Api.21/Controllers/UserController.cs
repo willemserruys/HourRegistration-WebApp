@@ -2,10 +2,10 @@
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using WebApiSample.DataAccess.Models;
-using WebApiSample.DataAccess.Repositories;
+using HourRegistration.DataAccess.Models;
+using HourRegistration.DataAccess.Repositories;
 
-namespace WebApiSample.Api._21.Controllers
+namespace HourRegistration.API
 {
     [Produces("application/json")]
     [Route("api/[controller]")]
@@ -18,15 +18,27 @@ namespace WebApiSample.Api._21.Controllers
             {
                 _repository = repository;
             _logger = logger;
-            } 
+            }
 
-        //[HttpGet]
-        //public async Task<ActionResult<List<User>>> GetAllAsync()
-        //{
-        //    _logger.LogDebug("Getting All Users");
-        //    var users = await _repository.GetUsersAsync();
+        [HttpGet]
+        public async Task<ActionResult<List<User>>> GetAllAsync()
+        {
+            _logger.LogDebug("Getting All Users");
+            var users = await _repository.GetUsersAsync();
 
-        //    return users;
-        //}
+            return users;
+        }
+
+        [HttpPost]
+        
+        public async Task<ActionResult<User>> CreateAsync(string name, string password)
+        {
+            _logger.LogDebug("Create User");
+            var user = await _repository.CreateAsync(name, password);
+
+            return user;
+        }
     }
+
+
 }

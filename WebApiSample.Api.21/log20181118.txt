@@ -107,3 +107,83 @@ Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updatin
    at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
    at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
    at WebApiSample.Api._21.Program.Main(String[] args) in C:\Users\willem.serruys\Documents\Github\HourRegistration_3.0\WebApiSample.Api.21\Program.cs:line 31
+2018-11-18 13:33:22.201 +01:00 [INF] Starting web host
+2018-11-18 13:33:24.073 +01:00 [FTL] Host terminated unexpectedly
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> Microsoft.Data.Sqlite.SqliteException: SQLite Error 19: 'UNIQUE constraint failed: Users.UserName'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.NoopExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at HourRegistration.API.Program.Main(String[] args) in C:\Users\willem.serruys\Documents\Github\HourRegistration_3.0\WebApiSample.Api.21\Program.cs:line 31
+2018-11-18 13:33:28.522 +01:00 [INF] Starting web host
+2018-11-18 13:33:28.878 +01:00 [FTL] Host terminated unexpectedly
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> Microsoft.Data.Sqlite.SqliteException: SQLite Error 19: 'UNIQUE constraint failed: Users.UserName'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(DbContext _, ValueTuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.NoopExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IReadOnlyList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at HourRegistration.API.Program.Main(String[] args) in C:\Users\willem.serruys\Documents\Github\HourRegistration_3.0\WebApiSample.Api.21\Program.cs:line 31
+2018-11-18 13:34:02.328 +01:00 [INF] Starting web host
+2018-11-18 13:35:04.079 +01:00 [INF] Starting web host
+2018-11-18 13:35:04.261 +01:00 [FTL] Application startup exception
+System.ArgumentException: AddDbContext was called with configuration, but the context type 'UserContext' only declares a parameterless constructor. This means that the configuration passed to AddDbContext will never be used. If configuration is passed to AddDbContext, then 'UserContext' should declare a constructor that accepts a DbContextOptions<UserContext> and must pass it to the base constructor for DbContext.
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.CheckContextConstructors[TContext]()
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext[TContextService,TContextImplementation](IServiceCollection serviceCollection, Action`2 optionsAction, ServiceLifetime contextLifetime, ServiceLifetime optionsLifetime)
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext[TContextService,TContextImplementation](IServiceCollection serviceCollection, Action`1 optionsAction, ServiceLifetime contextLifetime, ServiceLifetime optionsLifetime)
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext[TContext](IServiceCollection serviceCollection, Action`1 optionsAction, ServiceLifetime contextLifetime, ServiceLifetime optionsLifetime)
+   at HourRegistration.API.Startup.ConfigureServices(IServiceCollection services) in C:\Users\willem.serruys\Documents\Github\HourRegistration_3.0\WebApiSample.Api.21\Startup.cs:line 25
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.ConfigureServices(IServiceCollection services)
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.EnsureApplicationServices()
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.Initialize()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.BuildApplication()
+2018-11-18 13:35:40.647 +01:00 [INF] Starting web host
+2018-11-18 13:35:43.381 +01:00 [WRN] Failed to determine the https port for redirect.
+2018-11-18 13:43:51.340 +01:00 [INF] Starting web host
+2018-11-18 13:44:05.612 +01:00 [INF] Starting web host
+2018-11-18 13:44:05.786 +01:00 [FTL] Application startup exception
+System.ArgumentException: AddDbContext was called with configuration, but the context type 'UserContext' only declares a parameterless constructor. This means that the configuration passed to AddDbContext will never be used. If configuration is passed to AddDbContext, then 'UserContext' should declare a constructor that accepts a DbContextOptions<UserContext> and must pass it to the base constructor for DbContext.
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.CheckContextConstructors[TContext]()
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext[TContextService,TContextImplementation](IServiceCollection serviceCollection, Action`2 optionsAction, ServiceLifetime contextLifetime, ServiceLifetime optionsLifetime)
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext[TContextService,TContextImplementation](IServiceCollection serviceCollection, Action`1 optionsAction, ServiceLifetime contextLifetime, ServiceLifetime optionsLifetime)
+   at Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext[TContext](IServiceCollection serviceCollection, Action`1 optionsAction, ServiceLifetime contextLifetime, ServiceLifetime optionsLifetime)
+   at HourRegistration.API.Startup.ConfigureServices(IServiceCollection services) in C:\Users\willem.serruys\Documents\Github\HourRegistration_3.0\WebApiSample.Api.21\Startup.cs:line 25
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.ConfigureServices(IServiceCollection services)
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.EnsureApplicationServices()
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.Initialize()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Hosting.Internal.WebHost.BuildApplication()
+2018-11-18 13:44:29.940 +01:00 [INF] Starting web host
+2018-11-18 13:44:32.772 +01:00 [WRN] Failed to determine the https port for redirect.
+2018-11-18 13:44:39.437 +01:00 [DBG] Getting All Users
+2018-11-18 13:44:57.205 +01:00 [DBG] Getting All Users
+2018-11-18 13:44:58.479 +01:00 [DBG] Getting All Users
+2018-11-18 13:50:39.872 +01:00 [INF] Starting web host
+2018-11-18 13:50:42.568 +01:00 [WRN] Failed to determine the https port for redirect.
+2018-11-18 13:50:50.743 +01:00 [DBG] Create User

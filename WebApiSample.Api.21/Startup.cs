@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
-using WebApiSample.DataAccess;
-using WebApiSample.DataAccess.Repositories;
+using HourRegistration.DataAccess;
+using HourRegistration.DataAccess.Repositories;
 
-namespace WebApiSample.Api._21
+namespace HourRegistration.API
 {
     public class Startup
     {
@@ -21,16 +21,8 @@ namespace WebApiSample.Api._21
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<ProductsRepository>();
-            services.AddScoped<PetsRepository>();
             services.AddScoped<UserRepository>();
-
-            services.AddDbContext<ProductContext>(opt =>
-                opt.UseInMemoryDatabase("ProductInventory"));
-            services.AddDbContext<PetContext>(opt =>
-                opt.UseInMemoryDatabase("PetInventory"));
-            services.AddDbContext<UserContext>(opt =>
-                opt.UseInMemoryDatabase("UserInventory"));
+            services.AddDbContext<UserContext>();
 
             #region snippet_SetCompatibilityVersion
             services.AddMvc()
