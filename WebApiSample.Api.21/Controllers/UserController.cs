@@ -20,13 +20,13 @@ namespace WebApiSample.Api._21.Controllers
             _logger = logger;
             } 
 
-        [HttpGet]
-        public async Task<ActionResult<List<User>>> GetAllAsync()
-        {
-            _logger.LogDebug("Getting All Users");
-            var users = await _repository.GetUsersAsync();
+        //[HttpGet]
+        //public async Task<ActionResult<List<User>>> GetAllAsync()
+        //{
+        //    _logger.LogDebug("Getting All Users");
+        //    var users = await _repository.GetUsersAsync();
 
-            return users;
-        }
+        //    return users;
+        //}
     }
 }
