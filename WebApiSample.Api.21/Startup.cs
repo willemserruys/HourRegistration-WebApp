@@ -4,9 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Swashbuckle.AspNetCore.Swagger;
+// using Swashbuckle.AspNetCore.Swagger;
 using HourRegistration.DataAccess;
 using HourRegistration.DataAccess.Repositories;
+
+using NSwag;
+using NSwag.AspNetCore;
+
 
 namespace HourRegistration.API
 {
@@ -24,48 +28,43 @@ namespace HourRegistration.API
             services.AddScoped<UserRepository>();
             services.AddDbContext<UserContext>();
 
-            #region snippet_SetCompatibilityVersion
-            services.AddMvc()
-                    .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            #endregion
+            // Configure CORS
+            services.AddCors(corsOptions => corsOptions.AddPolicy(
+                "Default",
+                corsPolicyBuilder => corsPolicyBuilder
+                    .AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()));
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new Info
-                {
-                    Title = "ASP.NET Core 2.1+ Web API",
-                    Version = "v1"
-                });
-            });
+            // Register Mvc
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            #region snippet_ConfigureApiBehaviorOptions
-            services.Configure<ApiBehaviorOptions>(options =>
-            {
-                options.SuppressConsumesConstraintForFormFileParameters = true;
-                options.SuppressInferBindingSourcesForParameters = true;
-                options.SuppressModelStateInvalidFilter = true;
-            });
-            #endregion
+            services.AddSwaggerDocument();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseHsts();
-            }
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
 
-            app.UseHttpsRedirection();
+            // Register the Swagger generator and the Swagger UI middlewares
+            //app.UseSwaggerUi3WithApiExplorer(settings =>
+            //{
+            //    //settings.GeneratorSettings.DefaultPropertyNameHandling =
+            //    //    PropertyNameHandling.CamelCase;
+            //});
+
             app.UseSwagger();
-            app.UseSwaggerUI(c => 
+            app.UseSwaggerUi3(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API v1");
-                c.RoutePrefix = string.Empty;
-            });
+                c.Path = string.Empty;
+            }
+            );
+            // app.UseHttpsRedirection();
+
+            // Enabling CORS
+            app.UseCors("Default");
+
             app.UseMvc();
         }
     }

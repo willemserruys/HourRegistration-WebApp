@@ -16,7 +16,7 @@ namespace HourRegistration.API
             Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Debug()
     .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day)
-    .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+    .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
     .Enrich.FromLogContext()
     .WriteTo.Console()
     .CreateLogger();
